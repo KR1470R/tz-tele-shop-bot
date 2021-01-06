@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+	    "module": "commonjs",
+	    "moduleResolution": "node",
+	    "allowJs": false,
+	    "emitDecoratorMetadata": true,
+	    "experimentalDecorators": true,
+	    "resolveJsonModule": true,
+	    "declaration": false,
+	    "rootDir": ".",
+	    
+	    "noEmit": false
+  	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
+}

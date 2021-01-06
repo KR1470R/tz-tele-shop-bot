@@ -1,0 +1,32 @@
+{
+  "name": "tz-tele-shop-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -w --outDir dist src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KR1470R/tz-tele-shop-bot.git"
+  },
+  "keywords": [
+    "ts",
+    "node.js",
+    "telegraf"
+  ],
+  "author": "KR1470R",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/KR1470R/tz-tele-shop-bot/issues"
+  },
+  "homepage": "https://github.com/KR1470R/tz-tele-shop-bot#readme",
+  "dependencies": {
+    "telegraf": "^3.38.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20"
+  }
+}
