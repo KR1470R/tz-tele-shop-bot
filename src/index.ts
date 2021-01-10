@@ -52,7 +52,7 @@ bot.action("addToBasket", async ctx => {
 })
 bot.hears("🛠Админ панель🛠", async ctx => {
 	console.log(admin_username)
-	if (typeof admin_username !== "undefined" && admin_username === ctx.from.username) {
+	if (typeof admin_username !== "undefined" && admin_username.includes(ctx.from.username)) {
 		// @ts-ignore
 		ctx.scene.enter("adminPanel");
 	}
