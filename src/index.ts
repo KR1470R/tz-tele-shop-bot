@@ -7,6 +7,8 @@ import { SceneManager } from "./SceneManager";
 import { db }  from "./DateBase";
 
 const token = process.env.BOT_TOKEN;
+export const admin_username : string = process.env.TG_ADMIN_USERNAME;
+
 if (token === undefined) {
 	throw new Error('BOT_TOKEN must be provided!')
 }
@@ -21,8 +23,6 @@ const goToBasket = patternScene.goToBasket();
 const checkout = patternScene.checkout();
 const final = patternScene.final();
 const stage = new Stage([startScene, adminPanel, addProduct, goToBasket, checkout, final]);
-
-export const admin_username : string = process.env.TG_ADMIN_ID;
 
 bot.use(session());
 bot.use(stage.middleware());
@@ -48,9 +48,11 @@ bot.action("addToBasket", async ctx => {
 	} else {
 		db.adder("basket", ctx.from.username, product_name, product_price, 1);
 	}
+	ctx.telegram.sendMessage(ctx.chat.id, `${product_name} - ${product_price} успешно добавлен в корзину.`)
 })
 bot.hears("🛠Админ панель🛠", async ctx => {
-	if (admin_username === ctx.from.username) {
+	console.log(admin_username)
+	if (typeof admin_username !== "undefined" && admin_username === ctx.from.username) {
 		// @ts-ignore
 		ctx.scene.enter("adminPanel");
 	}

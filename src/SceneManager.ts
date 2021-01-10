@@ -9,13 +9,14 @@ export class SceneManager {
 	public startScene() {
 		const start = new BaseScene("startbot");
 		start.enter(async ctx => {
-			if (ctx.from.username === admin_username) {
+			console.log(admin_username)
+			if (typeof admin_username !== "undefined" && ctx.from.username === admin_username) {
 				admin_chat_id = ctx.chat.id;
 				ctx.reply("Добро пожаловать в магазин!", Markup.keyboard([
 					Markup.button("🛠Админ панель🛠")
 				]).extra())
 			} else {
-				ctx.reply("Добро пожаловать в магазин!");
+				await ctx.reply("Добро пожаловать в магазин!");
 			}
 			let products = db.getAll('products');
 			console.log('PRODUCTS', products)
